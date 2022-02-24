@@ -8,9 +8,6 @@
 int main()
 {
 
-	float x;
-	
-
 	try
 	{
 
