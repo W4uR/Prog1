@@ -35,8 +35,10 @@ int main()
     Image img1 {Point{cell_size * 2,cell_size * 4},"kave.jpg"};
     Image img2 {Point{cell_size * 2,cell_size * 6},"kave.jpg"};
     Image img3 {Point{cell_size * 6,cell_size * 2},"kave.jpg"};
-
-    Image moving = {Point{cell_size,cell_size},"mosoly.jpeg"};
+    
+    int x_cord = 100;
+    int y_cord = 100;
+    Image moving = {Point{x_cord,y_cord},"mosoly.jpeg"};
 
     win.attach(grid);
     win.attach(img1);
@@ -44,12 +46,12 @@ int main()
     win.attach(img3);
 
     win.attach(moving);
-
-    int i = 0;
-    while(i<5){
-        win.wait_for_button();
-        moving.move(cell_size,0);
-        i++;
+    
+    while(win.wait_for_button()){
+        int dx = rand()%8*100-x_cord;
+        int dy = rand()%8*100-y_cord;
+        x_cord+=dx;
+        y_cord+=dy;
+        moving.move(dx,dy);
     }
-
 }
