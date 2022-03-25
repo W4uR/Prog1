@@ -34,7 +34,7 @@ template<typename T> void S<T>::operator=(const T& d)
     //return val;
 }
 
-template<typename T> void readval(T& v)
+template<typename T> void read_val(T& v)
 {
     cin>>v;
 }
@@ -92,7 +92,8 @@ int main(){
     S<double> s_double(3.14);
     S<string> s_string("sztring");
     S<vector<int>> s_vect_int({0,1,2,3,4});
-
+    read_val(s_int);
+    //read_val(s_vect_int);
     cout<<"s_int: "<<s_int.get()<<endl;
     cout<<"s_double: "<<s_double.get()<<endl;
     cout<<"s_string: "<<s_string.get()<<endl;
