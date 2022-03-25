@@ -22,7 +22,8 @@ int main(){
     vector<int> myVector2 = myVector;
     list<int> myList2 = myList;
 
-    
+    int newint;
+
     for(int i = 0; i < myArray2.size();i++){
         myArray2[i] += 2;
     }
