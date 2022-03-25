@@ -86,12 +86,20 @@ int main(){
         cout << it-myVector.begin() << endl;
     }
 
-    it = find (myVector.begin(), myVector.end(), 27);
-    if (it == myVector.end())
+    list<int>::iterator itL = find (myList.begin(), myList.end(), 4);
+    if (itL == myList.end())
     {
         cout << "Nope" << endl;
     }else{
-        cout << it-myVector.begin() << endl;
+        //cout << itL-myList.begin() << endl; Hát ilyet nem lehet ... :(
+        int index = 0;
+        while (itL != myList.begin())
+        {
+            index++;
+            itL--;
+        }
+        
+        cout << index << endl;
     }
     
 }
