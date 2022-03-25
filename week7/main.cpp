@@ -2,12 +2,14 @@
 
 
 template<typename Iter1, typename Iter2>
-Iter2 my_copy(Iter1 f1, Iter1 e1, Iter2 f2)
-{
-    for (Iter1 p = f1; p != e1; p++){
+Iter2 my_copy(Iter1 f1, Iter1 e1, Iter2 f2){
 
-        *f2++ = *p;
+    Iter1 current = f1;
+    while (current != e1)
+    {
+        *f2++ = *current++;
     }
+    
     return f2;
 }
 
@@ -30,11 +32,10 @@ int main(){
     for(int i = 0; i < myVector2.size();i++){
         myVector2[i] += 3;
     }
-    for (list<int>::iterator i = myList2.begin(); i != myList2.end(); i++)
+    for (auto i = myList2.begin(); i != myList2.end(); i++)
     {
         *i+=5;
     }
-    //---
 
 
     cout<<"Tomb"<< endl;
@@ -46,17 +47,51 @@ int main(){
         cout << myVector[i] << "   "<< myVector2[i]<<endl;
     }
     cout<<"Lista"<< endl;
-    /*
-    for(auto const& i : myList){
-        cout << i << endl;
-    }
-    */
-    list<int>::iterator i1=myList.begin();
-    list<int>::iterator i2=myList2.begin();
+ 
+    auto i1 = myList.begin();
+    auto i2 = myList2.begin();
     while(i1 != myList.end()){
         cout << *i1 << "   " << *i2 << endl;
         i1++;
         i2++;
+    }
+    //--- másolások
+    my_copy(myArray2.begin(),myArray2.end(),myVector2.begin());
+    my_copy(myList2.begin(),myList2.end(),myArray.begin());
+    cout<<endl<<"----------After copy-----------"<<endl;
+    cout<<"Tomb"<< endl;
+    for(int i = 0; i < myArray.size();i++){
+        cout << myArray[i] << "   "<< myArray2[i]<< endl;
+    }
+    cout<<"Vektor"<< endl;
+    for(int i = 0; i < myVector.size();i++){
+        cout << myVector[i] << "   "<< myVector2[i]<<endl;
+    }
+    cout<<"Lista"<< endl;
+ 
+    i1 = myList.begin();
+    i2 = myList2.begin();
+    while(i1 != myList.end()){
+        cout << *i1 << "   " << *i2 << endl;
+        i1++;
+        i2++;
+    }
+
+    cout<<endl<<"----------Find results-----------"<<endl;
+    auto it = find (myVector.begin(), myVector.end(), 3);
+    if (it == myVector.end())
+    {
+        cout << "Nope" << endl;
+    }else{
+        cout << it-myVector.begin() << endl;
+    }
+
+    it = find (myVector.begin(), myVector.end(), 27);
+    if (it == myVector.end())
+    {
+        cout << "Nope" << endl;
+    }else{
+        cout << it-myVector.begin() << endl;
     }
     
 }
