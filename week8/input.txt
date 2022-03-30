@@ -1,0 +1,4 @@
+Alma 2 33.2
+Körte 1 63
+Barack 4 12.5
+Ribizli 5 24.22
