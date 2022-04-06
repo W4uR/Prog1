@@ -92,24 +92,31 @@ int main(){
     vi.insert(iterator,Item("horse shoe",99,12.34));
     vi.insert(iterator,Item("Canon S400",9988,499.95));
     cout << vi << endl << endl;
+
+    string s_rem1 = "Alma";
+    string s_rem2 = "Barack";
+    int i_rem1 = 99;
+    int i_rem2 = 9988;
+
+
     //Remove by name
     vi.erase(find_if(vi.begin(),vi.end(),
-    [](const Item&a){
-        return a.name == "Alma";
+    [s_rem1](const Item&a){
+        return a.name == s_rem1;
     }));
     vi.erase(find_if(vi.begin(),vi.end(),
-    [](const Item&a){
-        return a.name == "Barack";
+    [s_rem2](const Item&a){
+        return a.name == s_rem2;
     }));
     cout << vi << endl << endl;
     //Remove by iid
     vi.erase(find_if(vi.begin(),vi.end(),
-    [](const Item&a){
-        return a.iid == 99;
+    [i_rem1](const Item&a){
+        return a.iid == i_rem1;
     }));
     vi.erase(find_if(vi.begin(),vi.end(),
-    [](const Item&a){
-        return a.iid == 9988;
+    [i_rem2](const Item&a){
+        return a.iid == i_rem2;
     }));
     cout << vi << endl << endl;
 #pragma endregion Lista
@@ -138,23 +145,23 @@ int main(){
 
     //Remove by name
     vi.erase(find_if(vi.begin(),vi.end(),
-    [](const Item&a){
-        return a.name == "Alma";
+    [s_rem1](const Item&a){
+        return a.name == s_rem1;
     }));
     vi.erase(find_if(vi.begin(),vi.end(),
-    [](const Item&a){
-        return a.name == "Barack";
+    [s_rem2](const Item&a){
+        return a.name == s_rem2;
     }));
     cout << vi << endl << endl;
     //Remove by iid
 
     vi.erase(find_if(vi.begin(),vi.end(),
-    [](const Item&a){
-        return a.iid == 99;
+    [i_rem1](const Item&a){
+        return a.iid == i_rem1;
     }));
     vi.erase(find_if(vi.begin(),vi.end(),
-    [](const Item&a){
-        return a.iid == 9988;
+    [i_rem2](const Item&a){
+        return a.iid == i_rem2;
     }));
 
     cout << vi << endl << endl;
