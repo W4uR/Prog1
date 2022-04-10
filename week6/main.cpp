@@ -1,6 +1,7 @@
 # include "../std_lib_facilities.h"
 
-template<typename T>struct S{
+template<typename T>
+struct S{
     private:
         T val;
     public:
@@ -9,37 +10,52 @@ template<typename T>struct S{
         T& get();
         const T& get() const;
         //void set(T newVal);
-        void operator=(const T&);
+        T& operator=(const T&);
 
 };
 
-template<typename T> T& S<T>::get()
+template<typename T>
+T& S<T>::get()
 {
     return val;
 }
-template<typename T> const T& S<T>::get()const
+template<typename T>
+const T& S<T>::get() const
 {
     return val;
 }
 /*
-template<typename T> void S<T>::set(T newVal)
+template<typename T>
+void S<T>::set(T newVal)
 {
     val = newVal;
 }
 */
 
-template<typename T> void S<T>::operator=(const T& d)
+template<typename T> T& S<T>::operator=(const T& d)
 {
     val=d;
-    //return val;
+    return val;
 }
 
-template<typename T> void read_val(T& v)
+template<typename T>
+void read_val(T& v)
 {
     cin>>v;
 }
+template<typename T>
+istream& operator>>(istream& is, S<T>& sv){
 
-template<class T> ostream& operator<<(ostream& os, const vector<T>& vect)
+    T v;
+    cin >> v;
+    sv = v;
+
+    return is;
+}
+
+
+template<typename T>
+ostream& operator<<(ostream& os, const vector<T>& vect)
 {
     os << "{ ";
     for (int i = 0; i<vect.size(); ++i) 
@@ -55,7 +71,8 @@ template<class T> ostream& operator<<(ostream& os, const vector<T>& vect)
     return os;
 }
 
-template<class T> istream& operator>>(istream& is, vector<T>& d)
+template<typename T>
+istream& operator>>(istream& is, vector<T>& d)
 {
     char ch1;
     char ch2;
@@ -92,6 +109,7 @@ int main(){
     S<double> s_double(3.14);
     S<string> s_string("sztring");
     S<vector<int>> s_vect_int({0,1,2,3,4});
+    cout << "Enter an integer: "; 
     read_val(s_int);
     //read_val(s_vect_int);
     cout<<"s_int: "<<s_int.get()<<endl;
