@@ -19,6 +19,7 @@ ostream& operator<<(ostream& os, const Matrix<T,3>& m)
 
 int main(){
 
+    // 1)
     cout << "the size of char is: " << sizeof(char) << endl;
     cout << "the size of short is: " << sizeof(short) << endl;
     cout << "the size of int is: " <<  sizeof(int) << endl;
@@ -33,13 +34,13 @@ int main(){
     Matrix<double> c(10);
     Matrix<int,2> d(10,10);
     Matrix<int,3> e(10,10,10);
-
+    // 2)
     cout << "the size of Matrix 'a' is: " << sizeof(a) << endl;
     cout << "the size of Matrix 'b' is: " << sizeof(b) << endl;
     cout << "the size of Matrix 'c' is: " << sizeof(c) << endl;
     cout << "the size of Matrix 'd' is: " << sizeof(d) << endl;
     cout << "the size of Matrix 'e' is: " << sizeof(e) << endl;
-
+    //3
     cout << a << endl;
     cout << b << endl;
     cout << c << endl;
