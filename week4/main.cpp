@@ -9,7 +9,9 @@
 #include "Graph.h"
 
 double one(double x) { return 1; }
-double slope(double x) {return x/2;}
+double slope(double x) { return x/2;}
+double square(double x) { return x*x; }
+double sloping_cos(double x) {return cos(x) + slope(x);};
 
 int main()
 {
@@ -44,11 +46,24 @@ int main()
     Text t_slope{Point{x_orig + r_min * scale, y_orig - (slope(r_min) * scale + 10)},"x/2"};
     t_slope.set_color(Color::black);
 
+    Function f_square(square,r_min,r_max,origo,n_point,scale,scale);
+
+    Function f_cosine{cos,r_min,r_max,origo,n_point,scale,scale};    
+
+    f_cosine.set_color(Color::blue);
+
+    Function f_sloping_cosine{sloping_cos,r_min,r_max,origo,n_point,scale,scale};
+
+
     win.attach(x);
     win.attach(y);
     win.attach(f_one);
     win.attach(f_slope);
     win.attach(t_slope);
+    win.attach(f_square);
+    win.attach(f_cosine);
+    win.attach(f_sloping_cosine);
+
 
     win.wait_for_button();
 
