@@ -24,7 +24,15 @@ class D1 : public B1{
 class D2 : public D1{
     public:
         void pvf(){
-            cout << "D2:pvf()" << endl;
+            cout << "D2 :: pvf()" << endl;
+        }
+};
+
+
+class B2{
+    public:
+        virtual void pvf(){
+            cout << "B2 :: pvf()"<<endl;
         }
 };
 
@@ -39,13 +47,14 @@ class D21 : public B2{
 class D22 : public B2 {
     public:
         int number;
-        void pvf(){
+        void pvf() override{
             cout << number << endl;
         }
-        void f(B2& in){
-            in.pvf();
-        }
 };
+
+void f(B2& obj){
+    obj.pvf();
+}
 
 int main(){
 
@@ -64,18 +73,22 @@ int main(){
     obj3.vf();
     obj.f();
     
-    D2 obj3;
+    D2 obj4;
     
-    obj3.f();
-    obj3.vf();
-    obj3.pvf();
-    
-    D21 obj4;
-    D22 obj5;
-    B2 obj6;
-    // tecccenek a nevek nagyon <3
     obj4.f();
-    obj5.f(obj6);
+    obj4.vf();
+    obj4.pvf();
+    
+    D21 obj5;
+    D22 obj6;
+
+    obj5.text = "D1";
+    obj6.number = 22;
+
+
+    // tecccenek a nevek nagyon <3
+    f(obj5);
+    f(obj6);
     return 0;
 }
 
