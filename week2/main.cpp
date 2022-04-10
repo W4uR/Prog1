@@ -31,7 +31,6 @@ int main()
         win.attach(rects[rects.size()-1]);
     }
 
-
     Image img1 {Point{cell_size * 2,cell_size * 4},"kave.jpg"};
     Image img2 {Point{cell_size * 2,cell_size * 6},"kave.jpg"};
     Image img3 {Point{cell_size * 6,cell_size * 2},"kave.jpg"};
