@@ -14,18 +14,19 @@ struct Item{
 };
 
 struct Cmp_by_name{
-    bool operator()(const Item& a, const Item& b){
+    bool operator()(const Item& a, const Item& b) const
+    {
         return (a.name < b.name);
     }
 };
 
 struct Cmp_by_iid {
-bool operator()(const Item& a, const Item& b) const
+bool operator()(const Item& a, const Item& b)  const
     { return a.iid < b.iid; }
 };
 
 struct Cmp_by_value {
-bool operator()(const Item& a, const Item& b) const
+bool operator()(const Item& a, const Item& b)  const
     { return a.value > b.value; }
 };
 

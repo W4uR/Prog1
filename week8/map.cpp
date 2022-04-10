@@ -52,7 +52,6 @@ int main(){
     map<int,string> mis;
     invert_map(msi,mis);
     cout << mis;
-
     
     return 0;
 }

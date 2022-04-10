@@ -30,7 +30,6 @@ int main(){
 
     vector<double> vd;
 
-
     ifstream readFile("input2.txt");
     double value;
     readFile >> value;
