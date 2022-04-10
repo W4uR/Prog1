@@ -101,5 +101,4 @@ int main(){
         
         cout << index << endl;
     }
-    
 }
