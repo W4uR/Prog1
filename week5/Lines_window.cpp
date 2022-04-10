@@ -15,6 +15,7 @@ Lines_window::Lines_window(Point xy, int w, int h, const string& title)
     style_menu{Point{x_max()-70,110},80,20,Menu::vertical,"style"},
     style_menu_button{Point{x_max()-100,110},100,40,"Style menu",cb_style_menu}
 {
+    
     attach(next_button);
     attach(quit_button);
     attach(next_x);
