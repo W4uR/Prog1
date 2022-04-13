@@ -3,37 +3,39 @@
 
 class B1{
     public:
-        void vf(){
+        virtual void vf(){
             cout << "B1 :: vf()" << endl;
         }
         void f(){
             cout << "B1 :: f()" << endl;
         }
-         virtual void pvf(){
-            cout << "B1 :: pvf()" << endl;
-        }
+        virtual void pvf() = 0;
 };
 
 class D1 : public B1{
     public:
-        void vf(){
+        void vf() override{
             cout << "D1 :: vf()" << endl;
+        }
+        void pvf() override{
+            cout << "D1 :: pvf()" << endl;
         }
 };
 
+
 class D2 : public D1{
     public:
-        void pvf(){
+    
+        void pvf() override{
             cout << "D2 :: pvf()" << endl;
         }
+     
 };
 
 
 class B2{
     public:
-        virtual void pvf(){
-            cout << "B2 :: pvf()"<<endl;
-        }
+        virtual void pvf() = 0;
 };
 
 class D21 : public B2{
@@ -58,37 +60,50 @@ void f(B2& obj){
 
 int main(){
 
-    B1 obj;
+    /*
+    B1 B1_base;
 
-    obj.vf();
-    obj.f();
+    B1_base.vf();
+    B1_base.f();
+    */
 
-    D1 obj2;
+    D1 D1_from_B1;
 
-    obj2.vf();
-    obj2.f();
+    D1_from_B1.vf();
+    D1_from_B1.f();
+    D1_from_B1.pvf();
+    cout << endl;
 
-    B1& obj3 = obj2;
+    B1& D1_in_B1 = D1_from_B1;
 
-    obj3.vf();
-    obj.f();
+    D1_in_B1.vf();
+    D1_in_B1.f();
+    D1_in_B1.pvf();
+    cout << endl;
+
+
+    D2 asd;
+    asd.vf();
+    asd.f();
+    asd.pvf();
+    /*
+    D2 D2_from_D1_which_is_from_B1;
     
-    D2 obj4;
+    D2_from_D1_which_is_from_B1.f();
+    D2_from_D1_which_is_from_B1.vf();
+    //D2_from_D1_which_is_from_B1.pvf();
     
-    obj4.f();
-    obj4.vf();
-    obj4.pvf();
-    
-    D21 obj5;
-    D22 obj6;
+    D21 D21_from_B2;
+    D22 D22_from_B2;
 
-    obj5.text = "D1";
-    obj6.number = 22;
+    D21_from_B2.text = "D1";
+    D22_from_B2.number = 22;
 
 
     // tecccenek a nevek nagyon <3
-    f(obj5);
-    f(obj6);
+    f(D21_from_B2);
+    f(D22_from_B2);
+    */
     return 0;
 }
 
