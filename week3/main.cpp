@@ -1,6 +1,6 @@
 
 #include "../std_lib_facilities.h"
-
+/*
 class B1{
     public:
         virtual void vf(){
@@ -9,7 +9,7 @@ class B1{
         void f(){
             cout << "B1 :: f()" << endl;
         }
-        virtual void pvf() = 0;
+        //virtual void pvf() = 0;
 };
 
 class D1 : public B1{
@@ -31,7 +31,7 @@ class D2 : public D1{
         }
      
 };
-
+*/
 
 class B2{
     public:
@@ -65,7 +65,7 @@ int main(){
 
     B1_base.vf();
     B1_base.f();
-    */
+    
 
     D1 D1_from_B1;
 
@@ -92,18 +92,17 @@ int main(){
     D2_from_D1_which_is_from_B1.f();
     D2_from_D1_which_is_from_B1.vf();
     //D2_from_D1_which_is_from_B1.pvf();
-    
+    */
     D21 D21_from_B2;
     D22 D22_from_B2;
 
     D21_from_B2.text = "D1";
     D22_from_B2.number = 22;
 
-
+    
     // tecccenek a nevek nagyon <3
     f(D21_from_B2);
     f(D22_from_B2);
-    */
     return 0;
 }
 
